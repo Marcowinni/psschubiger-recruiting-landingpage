@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Werde Teil unseres Teams — PS Planungsbüro Schubiger AG</title>
+<meta name="description" content="Bewirb dich in 2 Minuten als Zeichner:in, Techniker:in oder Architekt:in bei PS Planungsbüro Schubiger AG in Uznach.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-primary: #014898;
+  --color-primary-hover: #013A7E;
+  --color-primary-light: #1F6FC4;
+  --color-primary-soft: #EAF1FB;
+  --color-primary-softer: #F5F9FD;
+  --color-dark: #1A1A1A;
+  --color-text: #262626;
+  --color-gray-mid: #666666;
+  --color-gray-light: #939393;
+  --color-gray-soft: #C8C8C8;
+  --color-border: #E8E8E8;
+  --color-border-soft: #F0F0F0;
+  --color-bg: #FFFFFF;
+  --color-bg-soft: #FAFAF8;
+  --color-bg-blueprint: #F7F9FC;
+  --color-error: #C0392B;
+  --color-success: #14A37F;
+
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-sans: 'Jost', -apple-system, BlinkMacSystemFont, 'Century Gothic', 'Segoe UI', Arial, sans-serif;
+
+  --shadow-xs: 0 1px 2px rgba(0,0,0,0.03);
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.04);
+  --shadow-md: 0 8px 24px rgba(15,40,80,0.06);
+  --shadow-lg: 0 20px 50px rgba(15,40,80,0.08);
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.55;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img { max-width: 100%; display: block; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+a { color: var(--color-primary); }
+
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 130px 20px 110px;
+  background: linear-gradient(180deg, var(--color-bg-soft) 0%, var(--color-bg) 65%);
+  overflow: hidden;
+}
+
+/* Subtle architectural blueprint grid */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(1,72,152,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(1,72,152,0.035) 1px, transparent 1px);
+  background-size: 60px 60px;
+  background-position: center center;
+  -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,0.7) 0%, transparent 75%);
+          mask-image: radial-gradient(ellipse at center, rgba(0,0,0,0.7) 0%, transparent 75%);
+  pointer-events: none;
+}
+
+/* Soft blue glow top-right */
+.hero::after {
+  content: "";
+  position: absolute;
+  top: -20%;
+  right: -15%;
+  width: 60%;
+  height: 75%;
+  background: radial-gradient(ellipse at center, rgba(1,72,152,0.09) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.hero-nav {
+  position: absolute;
+  top: 28px;
+  left: 28px;
+  right: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 10;
+}
+
+.hero-logo { display: inline-block; transition: opacity 0.2s ease; }
+.hero-logo:hover { opacity: 0.75; }
+.hero-logo img { height: 48px; width: auto; }
+
+.hero-contact {
+  display: none;
+  color: var(--color-gray-mid);
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  font-weight: 500;
+}
+
+.hero-contact a {
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.hero-contact a:hover { color: var(--color-primary); }
+
+@media (min-width: 768px) {
+  .hero-contact { display: block; }
+  .hero-logo img { height: 56px; }
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 780px;
+  text-align: center;
+  animation: fadeInUp 0.9s ease-out both;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: 32px;
+  padding: 8px 18px;
+  background: var(--color-primary-soft);
+  border-radius: 100px;
+  font-weight: 600;
+}
+
+.hero-eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-primary);
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 1.05;
+  color: var(--color-dark);
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
+}
+
+.hero-title em {
+  font-style: italic;
+  color: var(--color-primary);
+  font-weight: 300;
+}
+
+@media (min-width: 768px) { .hero-title { font-size: 62px; } }
+@media (min-width: 1024px) { .hero-title { font-size: 74px; } }
+
+.hero-sub {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-gray-mid);
+  letter-spacing: 0.02em;
+  margin-bottom: 28px;
+  line-height: 1.55;
+}
+
+@media (min-width: 768px) { .hero-sub { font-size: 18px; } }
+
+.hero-teaser {
+  max-width: 560px;
+  margin: 0 auto 44px;
+  color: var(--color-gray-mid);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 32px;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: var(--color-bg);
+  box-shadow: 0 4px 14px rgba(1,72,152,0.22);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--color-primary-hover);
+  box-shadow: 0 8px 24px rgba(1,72,152,0.32);
+  transform: translateY(-1px);
+}
+
+.btn-primary:focus-visible {
+  outline: 3px solid rgba(1,72,152,0.35);
+  outline-offset: 2px;
+}
+
+.btn-primary:disabled {
+  background: var(--color-border);
+  color: var(--color-gray-light);
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--color-gray-mid);
+  border: 1.5px solid var(--color-border);
+}
+
+.btn-ghost:hover:not(:disabled) {
+  background: var(--color-bg-soft);
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.btn-ghost:focus-visible {
+  outline: 3px solid rgba(1,72,152,0.2);
+  outline-offset: 2px;
+}
+
+.btn-large { padding: 18px 38px; font-size: 16px; }
+.btn-full { width: 100%; padding: 18px 28px; }
+
+.nav-buttons {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.nav-buttons .btn-back {
+  flex: 0 0 auto;
+  padding: 18px 22px;
+}
+
+.nav-buttons .btn-next { flex: 1; }
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--color-primary);
+  z-index: 3;
+  animation: bob 2.4s ease-in-out infinite;
+  opacity: 0.75;
+  text-decoration: none;
+}
+
+.scroll-indicator svg { width: 26px; height: 26px; }
+
+@keyframes bob {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, 8px); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== QUESTIONNAIRE ===== */
+.form-section {
+  padding: 80px 20px 60px;
+  background: var(--color-bg-blueprint);
+  position: relative;
+}
+
+.form-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(1,72,152,0.025) 1px, transparent 1px);
+  background-size: 100% 80px;
+  pointer-events: none;
+}
+
+@media (min-width: 768px) { .form-section { padding: 120px 24px 90px; } }
+
+.form-card {
+  position: relative;
+  max-width: 680px;
+  margin: 0 auto;
+  background: var(--color-bg);
+  border-radius: var(--radius-lg);
+  padding: 36px 24px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--color-border-soft);
+}
+
+@media (min-width: 768px) { .form-card { padding: 56px 56px; } }
+
+.progress-wrap { margin-bottom: 40px; }
+
+.progress-track {
+  height: 3px;
+  background: var(--color-border);
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 20%;
+  background: var(--color-primary);
+  border-radius: 100px;
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.progress-label {
+  margin-top: 14px;
+  font-size: 12px;
+  color: var(--color-gray-light);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.step {
+  display: none;
+  animation: fadeIn 0.35s ease-out;
+}
+
+.step.active { display: block; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.step-title {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--color-dark);
+  margin-bottom: 10px;
+  letter-spacing: -0.015em;
+}
+
+@media (min-width: 768px) { .step-title { font-size: 32px; } }
+
+.step-sublabel {
+  font-size: 14px;
+  color: var(--color-gray-mid);
+  margin-bottom: 30px;
+  letter-spacing: 0.01em;
+}
+
+.options {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.options.cols-2 { grid-template-columns: 1fr; }
+
+@media (min-width: 640px) {
+  .options.cols-2 { grid-template-columns: 1fr 1fr; }
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 52px 18px 20px;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-text);
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  outline: none;
+  user-select: none;
+}
+
+.option:hover {
+  border-color: var(--color-primary-light);
+  background: var(--color-primary-softer);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-xs);
+}
+
+.option:focus-visible {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(1,72,152,0.18);
+}
+
+.option.selected {
+  border-color: var(--color-primary);
+  background: var(--color-primary-soft);
+  box-shadow: 0 0 0 1px var(--color-primary) inset;
+}
+
+.option.selected::after {
+  content: "";
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  background: var(--color-primary);
+  border-radius: 50%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M5 10l3.5 3.5L15 7' stroke='%23fff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 16px 16px;
+}
+
+.option-icon {
+  font-size: 22px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.option-center {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 32px 20px;
+  font-size: 17px;
+  font-weight: 600;
+  gap: 14px;
+}
+
+.option-center .option-icon { font-size: 36px; }
+
+/* ===== Step 4 Benefits ===== */
+.benefits-wrap {
+  background: linear-gradient(135deg, var(--color-primary-softer) 0%, var(--color-primary-soft) 100%);
+  margin: 0 -24px 28px;
+  padding: 40px 24px 44px;
+  border-radius: var(--radius-md);
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .benefits-wrap { margin: 0 -56px 32px; padding: 52px 48px 48px; }
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+@media (min-width: 640px) {
+  .benefits-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+}
+
+.benefit {
+  background: var(--color-bg);
+  padding: 26px 14px;
+  border-radius: var(--radius-md);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid var(--color-border-soft);
+}
+
+.benefit:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(1,72,152,0.08);
+}
+
+.benefit-icon {
+  font-size: 34px;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.benefit-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-dark);
+  line-height: 1.4;
+}
+
+@media (min-width: 640px) { .benefit-label { font-size: 14px; } }
+
+.benefits-quote {
+  text-align: center;
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--color-primary);
+  font-size: 17px;
+  line-height: 1.6;
+  max-width: 480px;
+  margin: 0 auto;
+  font-weight: 400;
+}
+
+/* ===== Step 5 Form ===== */
+.field { margin-bottom: 20px; }
+
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 640px) { .field-row { grid-template-columns: 1fr 1fr; } }
+
+.field label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text);
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+}
+
+.field input[type="text"],
+.field input[type="tel"],
+.field input[type="email"] {
+  width: 100%;
+  padding: 14px 16px;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  color: var(--color-text);
+  background: var(--color-bg);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.field input::placeholder { color: var(--color-gray-soft); font-weight: 400; }
+
+.field input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(1,72,152,0.15);
+}
+
+.field input.error {
+  border-color: var(--color-error);
+  background: rgba(192,57,43,0.03);
+}
+
+.field-error {
+  display: none;
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--color-error);
+  font-weight: 500;
+}
+
+.field-error::before { content: "⚠ "; margin-right: 2px; }
+.field-error.visible { display: block; }
+
+.tel-hint {
+  display: inline-block;
+  margin-left: 6px;
+  color: var(--color-gray-light);
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 18px;
+  background: var(--color-bg-soft);
+  border: 1px solid var(--color-border-soft);
+  border-radius: var(--radius-sm);
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.consent input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: var(--color-primary);
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.consent label {
+  font-size: 13px;
+  color: var(--color-gray-mid);
+  line-height: 1.55;
+  cursor: pointer;
+  margin: 0;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.consent-error { margin-bottom: 18px; }
+
+.nav-row {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 8px;
+  align-items: center;
+}
+
+.nav-hint {
+  font-size: 12px;
+  color: var(--color-gray-light);
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+.nav-hint.ok { color: var(--color-success); font-weight: 500; }
+
+.submit-wrap { margin-top: 24px; }
+
+.submit-note {
+  text-align: center;
+  font-size: 12px;
+  color: var(--color-gray-light);
+  margin-top: 14px;
+  letter-spacing: 0.02em;
+}
+
+/* ===== Success ===== */
+.success {
+  display: none;
+  text-align: center;
+  padding: 24px 0;
+  animation: fadeIn 0.4s ease-out;
+}
+
+.success.active { display: block; }
+
+.check-circle {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  margin: 0 auto 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: popIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  box-shadow: 0 10px 30px rgba(1,72,152,0.25);
+}
+
+.check-circle svg {
+  width: 44px;
+  height: 44px;
+  stroke: var(--color-bg);
+  stroke-width: 4;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 60;
+  stroke-dashoffset: 60;
+  animation: drawCheck 0.6s ease-out 0.3s forwards;
+}
+
+@keyframes popIn {
+  0% { transform: scale(0); opacity: 0; }
+  60% { transform: scale(1.08); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes drawCheck { to { stroke-dashoffset: 0; } }
+
+.success-title {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--color-dark);
+  margin-bottom: 14px;
+  letter-spacing: -0.015em;
+}
+
+@media (min-width: 768px) { .success-title { font-size: 36px; } }
+
+.success-text {
+  color: var(--color-gray-mid);
+  font-size: 15px;
+  line-height: 1.65;
+  max-width: 440px;
+  margin: 0 auto 28px;
+}
+
+.success-logo {
+  margin: 24px auto 20px;
+  height: 40px;
+  width: auto;
+  opacity: 0.7;
+}
+
+.success-link {
+  color: var(--color-primary);
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  transition: color 0.2s ease;
+}
+
+.success-link:hover { color: var(--color-primary-hover); text-decoration: underline; }
+
+/* ===== Footer ===== */
+.footer {
+  background: var(--color-bg);
+  padding: 40px 20px 56px;
+  text-align: center;
+  border-top: 1px solid var(--color-border-soft);
+}
+
+.footer-info {
+  font-size: 13px;
+  color: var(--color-gray-mid);
+  line-height: 1.8;
+  max-width: 720px;
+  margin: 0 auto 12px;
+}
+
+.footer-info a {
+  color: var(--color-gray-mid);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-info a:hover { color: var(--color-primary); }
+
+.footer-copyright {
+  font-size: 12px;
+  color: var(--color-gray-light);
+  letter-spacing: 0.02em;
+}
+
+.footer-copyright a {
+  color: var(--color-gray-light);
+  text-decoration: underline;
+  text-decoration-color: rgba(0,0,0,0.12);
+  transition: color 0.2s ease;
+}
+
+.footer-copyright a:hover { color: var(--color-primary); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<section class="hero" id="hero">
+  <div class="hero-nav">
+    <a href="https://www.psschubiger.ch" class="hero-logo" target="_blank" rel="noopener" aria-label="PS Planungsbüro Schubiger AG Website">
+      <img src="https://static.wixstatic.com/media/2ce3ae_6a52a8553f8f479d95e8a380c19ebca7~mv2.png/v1/fill/w_157,h_68,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/PS%20Logo.png" alt="PS Planungsbüro Schubiger AG Logo">
+    </a>
+    <div class="hero-contact">
+      <a href="tel:+41552858450">+41 55 285 84 50</a>
+    </div>
+  </div>
+
+  <div class="hero-inner">
+    <span class="hero-eyebrow">Karriere · Uznach</span>
+    <h1 class="hero-title">Werde Teil <em>unseres</em> Teams.</h1>
+    <p class="hero-sub">Zeichner:in / Techniker:in / Architekt:in gesucht — Bewirb dich in 2 Minuten.</p>
+    <p class="hero-teaser">PS Planungsbüro Schubiger AG steht seit 1988 für individuelle Architektur und Bauplanung in der Region Uznach. Wir bauen mehr als Häuser — wir bauen Zukunft.</p>
+    <a href="#form" class="btn btn-primary btn-large" data-scroll="form">Jetzt bewerben →</a>
+  </div>
+
+  <a href="#form" class="scroll-indicator" data-scroll="form" aria-label="Zur Bewerbung scrollen">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </a>
+</section>
+
+<section class="form-section" id="form">
+  <div class="form-card">
+    <div class="progress-wrap" id="progressWrap">
+      <div class="progress-track" aria-hidden="true">
+        <div class="progress-fill" id="progressFill" style="width: 20%;"></div>
+      </div>
+      <div class="progress-label" id="progressLabel">Schritt 1 von 5</div>
+    </div>
+
+    <form id="applicationForm" novalidate>
+
+      <div class="step active" data-step="1">
+        <h2 class="step-title">Hast du eine abgeschlossene Ausbildung als Zeichner:in (EFZ), Techniker:in oder Architekt:in?</h2>
+        <p class="step-sublabel">Wähle eine Option.</p>
+        <div class="options cols-2" role="radiogroup" aria-label="Ausbildung">
+          <div class="option option-center" tabindex="0" role="radio" aria-checked="false" data-value="ja">
+            <span class="option-icon" aria-hidden="true">✓</span>
+            <span>Ja</span>
+          </div>
+          <div class="option option-center" tabindex="0" role="radio" aria-checked="false" data-value="nein">
+            <span class="option-icon" aria-hidden="true">✗</span>
+            <span>Nein</span>
+          </div>
+        </div>
+        <div class="nav-row">
+          <button type="button" class="btn btn-primary btn-full" data-next="1" disabled>Weiter →</button>
+        </div>
+      </div>
+
+      <div class="step" data-step="2">
+        <h2 class="step-title">Wo stehst du gerade beruflich?</h2>
+        <p class="step-sublabel">Wähle eine Option.</p>
+        <div class="options" role="radiogroup" aria-label="Aktuelle Situation">
+          <div class="option" tabindex="0" role="radio" aria-checked="false" data-value="zeichner">
+            <span class="option-icon" aria-hidden="true">✏️</span>
+            <span>Ich arbeite als Zeichner:in</span>
+          </div>
+          <div class="option" tabindex="0" role="radio" aria-checked="false" data-value="architekt">
+            <span class="option-icon" aria-hidden="true">🏠</span>
+            <span>Ich arbeite als Architekt:in</span>
+          </div>
+          <div class="option" tabindex="0" role="radio" aria-checked="false" data-value="techniker">
+            <span class="option-icon" aria-hidden="true">⚙️</span>
+            <span>Ich arbeite als Techniker:in</span>
+          </div>
+          <div class="option" tabindex="0" role="radio" aria-checked="false" data-value="einsteiger">
+            <span class="option-icon" aria-hidden="true">🎓</span>
+            <span>Berufseinsteiger (frisch ab Lehre)</span>
+          </div>
+          <div class="option" tabindex="0" role="radio" aria-checked="false" data-value="wechsel">
+            <span class="option-icon" aria-hidden="true">🔄</span>
+            <span>Ich bin in einem anderen Bereich und möchte wechseln</span>
+          </div>
+        </div>
+        <div class="nav-row">
+          <div class="nav-buttons">
+            <button type="button" class="btn btn-ghost btn-back" data-back="2">← Zurück</button>
+            <button type="button" class="btn btn-primary btn-next" data-next="2" disabled>Weiter →</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="step" data-step="3">
+        <h2 class="step-title">Was ist dir bei der Arbeit am wichtigsten?</h2>
+        <p class="step-sublabel">Wähle genau 2 aus.</p>
+        <div class="options cols-2" role="group" aria-label="Prioritäten — zwei auswählen">
+          <div class="option" tabindex="0" role="checkbox" aria-checked="false" data-value="selbststaendig" data-multi="true">
+            <span class="option-icon" aria-hidden="true">🧍</span>
+            <span>Selbstständig arbeiten können</span>
+          </div>
+          <div class="option" tabindex="0" role="checkbox" aria-checked="false" data-value="team" data-multi="true">
+            <span class="option-icon" aria-hidden="true">👥</span>
+            <span>Gutes Team und Zusammenarbeit</span>
+          </div>
+          <div class="option" tabindex="0" role="checkbox" aria-checked="false" data-value="weiterbildung" data-multi="true">
+            <span class="option-icon" aria-hidden="true">🎓</span>
+            <span>Weiterbildung und Entwicklung</span>
+          </div>
+          <div class="option" tabindex="0" role="checkbox" aria-checked="false" data-value="abwechslung" data-multi="true">
+            <span class="option-icon" aria-hidden="true">🧩</span>
+            <span>Abwechslungsreiche Aufgaben</span>
+          </div>
+        </div>
+        <div class="nav-row">
+          <div class="nav-buttons">
+            <button type="button" class="btn btn-ghost btn-back" data-back="3">← Zurück</button>
+            <button type="button" class="btn btn-primary btn-next" data-next="3" disabled title="Bitte wähle genau 2 aus.">Weiter →</button>
+          </div>
+          <span class="nav-hint" id="step3Hint">Bitte wähle genau 2 aus. (0/2)</span>
+        </div>
+      </div>
+
+      <div class="step" data-step="4">
+        <h2 class="step-title">Das erwartet dich bei uns.</h2>
+        <p class="step-sublabel">Ein Blick in unsere Kultur — darauf kannst du zählen.</p>
+        <div class="benefits-wrap">
+          <div class="benefits-grid">
+            <div class="benefit">
+              <div class="benefit-icon" aria-hidden="true">🚀</div>
+              <div class="benefit-label">Entwicklungs&shy;möglichkeiten</div>
+            </div>
+            <div class="benefit">
+              <div class="benefit-icon" aria-hidden="true">🏗️</div>
+              <div class="benefit-label">Spannende &amp; abwechslungsreiche Projekte</div>
+            </div>
+            <div class="benefit">
+              <div class="benefit-icon" aria-hidden="true">🏖️</div>
+              <div class="benefit-label">5 Wochen Ferien</div>
+            </div>
+            <div class="benefit">
+              <div class="benefit-icon" aria-hidden="true">🤝</div>
+              <div class="benefit-label">Kollegiales Team</div>
+            </div>
+            <div class="benefit">
+              <div class="benefit-icon" aria-hidden="true">⏱️</div>
+              <div class="benefit-label">Bezahlte Pause (30 Min. pro Tag)</div>
+            </div>
+            <div class="benefit">
+              <div class="benefit-icon" aria-hidden="true">🎉</div>
+              <div class="benefit-label">Gemeinsame Anlässe</div>
+            </div>
+          </div>
+          <p class="benefits-quote">„Wir sind ein Team, das füreinander einsteht — und das schon seit über 35 Jahren."</p>
+        </div>
+        <div class="nav-row">
+          <div class="nav-buttons">
+            <button type="button" class="btn btn-ghost btn-back" data-back="4">← Zurück</button>
+            <button type="button" class="btn btn-primary btn-next btn-large" data-next="4">Weiter zur Bewerbung →</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="step" data-step="5">
+        <h2 class="step-title">Wie können wir dich erreichen?</h2>
+        <p class="step-sublabel">Fast geschafft! Hinterlasse deine Kontaktdaten — wir melden uns innerhalb von 48 Stunden.</p>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="vorname">Vorname</label>
+            <input type="text" id="vorname" name="vorname" autocomplete="given-name" required minlength="2">
+            <div class="field-error" id="err-vorname">Bitte gib deinen Vornamen ein (min. 2 Zeichen).</div>
+          </div>
+          <div class="field">
+            <label for="nachname">Nachname</label>
+            <input type="text" id="nachname" name="nachname" autocomplete="family-name" required minlength="2">
+            <div class="field-error" id="err-nachname">Bitte gib deinen Nachnamen ein (min. 2 Zeichen).</div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="telefon">Telefon <span class="tel-hint">🇨🇭 z.B. +41 79 123 45 67</span></label>
+          <input type="tel" id="telefon" name="telefon" autocomplete="tel" placeholder="+41 79 123 45 67" required>
+          <div class="field-error" id="err-telefon">Bitte gib eine gültige Schweizer Telefonnummer ein.</div>
+        </div>
+
+        <div class="field">
+          <label for="email">E-Mail</label>
+          <input type="email" id="email" name="email" autocomplete="email" placeholder="name@beispiel.ch" required>
+          <div class="field-error" id="err-email">Bitte gib eine gültige E-Mail-Adresse ein.</div>
+        </div>
+
+        <div class="consent">
+          <input type="checkbox" id="consent" name="consent" required>
+          <label for="consent">Ich stimme zu, dass meine Daten zur Verarbeitung meiner Bewerbung gespeichert werden (Datenschutz gemäss DSGVO / DSG).</label>
+        </div>
+        <div class="field-error consent-error" id="err-consent">Bitte stimme der Datenschutzerklärung zu.</div>
+
+        <div class="submit-wrap">
+          <div class="nav-buttons">
+            <button type="button" class="btn btn-ghost btn-back" data-back="5">← Zurück</button>
+            <button type="submit" class="btn btn-primary btn-next btn-large" id="submitBtn">Jetzt bewerben ✓</button>
+          </div>
+          <p class="submit-note">Kostenlos &amp; unverbindlich · Deine Angaben werden vertraulich behandelt.</p>
+        </div>
+      </div>
+
+      <div class="success" id="successState" aria-live="polite">
+        <div class="check-circle">
+          <svg viewBox="0 0 52 52" aria-hidden="true">
+            <path d="M14 27 l8 8 l16 -18"/>
+          </svg>
+        </div>
+        <h2 class="success-title">Danke für deine Bewerbung!</h2>
+        <p class="success-text">Wir haben deine Daten erhalten und melden uns in den nächsten 48 Stunden bei dir. Wir freuen uns auf dich!</p>
+        <img src="https://static.wixstatic.com/media/2ce3ae_6a52a8553f8f479d95e8a380c19ebca7~mv2.png/v1/fill/w_157,h_68,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/PS%20Logo.png" alt="PS Planungsbüro Schubiger AG" class="success-logo">
+        <div><a href="https://www.psschubiger.ch" class="success-link" target="_blank" rel="noopener">Zur PS Schubiger Website →</a></div>
+      </div>
+
+    </form>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-info">
+    PS Planungsbüro Schubiger AG — Rotfarb 14, 8730 Uznach — <a href="tel:+41552858450">+41 55 285 84 50</a> — <a href="mailto:info@psschubiger.ch">info@psschubiger.ch</a>
+  </div>
+  <div class="footer-copyright">
+    © 2025 PS Planungsbüro Schubiger AG | <a href="https://www.psschubiger.ch/datenschutzerkl%C3%A4rung" target="_blank" rel="noopener">Datenschutzerklärung</a>
+  </div>
+</footer>
+
+<script>
+(function() {
+  'use strict';
+
+  var TOTAL_STEPS = 5;
+
+  var state = {
+    currentStep: 1,
+    answers: {
+      ausbildung: null,
+      situation: null,
+      priorities: [],
+      kontakt: { vorname: "", nachname: "", telefon: "", email: "" }
+    }
+  };
+
+  function $(sel, ctx) { return (ctx || document).querySelector(sel); }
+  function $$(sel, ctx) { return Array.prototype.slice.call((ctx || document).querySelectorAll(sel)); }
+
+  var progressFill = $('#progressFill');
+  var progressLabel = $('#progressLabel');
+  var progressWrap = $('#progressWrap');
+  var successState = $('#successState');
+  var form = $('#applicationForm');
+  var step3Hint = $('#step3Hint');
+
+  function updateProgress() {
+    var pct = (state.currentStep / TOTAL_STEPS) * 100;
+    progressFill.style.width = pct + '%';
+    progressLabel.textContent = 'Schritt ' + state.currentStep + ' von ' + TOTAL_STEPS;
+  }
+
+  function smoothScrollTo(el, offset) {
+    if (!el) return;
+    var top = el.getBoundingClientRect().top + window.pageYOffset - (offset || 0);
+    window.scrollTo({ top: top, behavior: 'smooth' });
+  }
+
+  function goToStep(n) {
+    state.currentStep = n;
+    $$('.step').forEach(function(el) { el.classList.remove('active'); });
+    var target = $('.step[data-step="' + n + '"]');
+    if (target) target.classList.add('active');
+    updateProgress();
+    var card = $('.form-card');
+    if (card && window.pageYOffset > card.getBoundingClientRect().top + window.pageYOffset - 40) {
+      smoothScrollTo(card, 40);
+    }
+  }
+
+  function setNextBtn(stepNum, enabled) {
+    var btn = document.querySelector('button[data-next="' + stepNum + '"]');
+    if (btn) btn.disabled = !enabled;
+  }
+
+  $$('.step').forEach(function(stepEl) {
+    var stepNum = parseInt(stepEl.getAttribute('data-step'), 10);
+    var options = $$('.option', stepEl);
+
+    options.forEach(function(opt) {
+      var isMulti = opt.getAttribute('data-multi') === 'true';
+
+      function activate() {
+        var val = opt.getAttribute('data-value');
+
+        if (!isMulti) {
+          options.forEach(function(o) {
+            o.classList.remove('selected');
+            o.setAttribute('aria-checked', 'false');
+          });
+          opt.classList.add('selected');
+          opt.setAttribute('aria-checked', 'true');
+
+          if (stepNum === 1) {
+            state.answers.ausbildung = val;
+            setNextBtn(1, true);
+          } else if (stepNum === 2) {
+            state.answers.situation = val;
+            setNextBtn(2, true);
+          }
+        } else {
+          var idx = state.answers.priorities.indexOf(val);
+          if (idx > -1) {
+            state.answers.priorities.splice(idx, 1);
+            opt.classList.remove('selected');
+            opt.setAttribute('aria-checked', 'false');
+          } else {
+            if (state.answers.priorities.length >= 2) return;
+            state.answers.priorities.push(val);
+            opt.classList.add('selected');
+            opt.setAttribute('aria-checked', 'true');
+          }
+          var exact = state.answers.priorities.length === 2;
+          setNextBtn(3, exact);
+          if (step3Hint) {
+            if (exact) {
+              step3Hint.textContent = 'Perfekt — du kannst weiter.';
+              step3Hint.classList.add('ok');
+            } else {
+              step3Hint.textContent = 'Bitte wähle genau 2 aus. (' + state.answers.priorities.length + '/2)';
+              step3Hint.classList.remove('ok');
+            }
+          }
+        }
+      }
+
+      opt.addEventListener('click', activate);
+      opt.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+          e.preventDefault();
+          activate();
+        }
+      });
+    });
+  });
+
+  $$('button[data-next]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      if (btn.disabled) return;
+      var curr = parseInt(btn.getAttribute('data-next'), 10);
+      if (curr < TOTAL_STEPS) goToStep(curr + 1);
+    });
+  });
+
+  $$('button[data-back]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var curr = parseInt(btn.getAttribute('data-back'), 10);
+      if (curr > 1) goToStep(curr - 1);
+    });
+  });
+
+  $$('[data-scroll="form"]').forEach(function(el) {
+    el.addEventListener('click', function(e) {
+      e.preventDefault();
+      smoothScrollTo($('#form'), 0);
+    });
+  });
+
+  var validators = {
+    vorname: function(v) { return v.trim().length >= 2; },
+    nachname: function(v) { return v.trim().length >= 2; },
+    telefon: function(v) {
+      var cleaned = v.replace(/[\s\-\.\(\)\/]/g, '');
+      return /^(\+41|0041|0)[1-9]\d{8,9}$/.test(cleaned);
+    },
+    email: function(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()); }
+  };
+
+  function validateField(id) {
+    var input = document.getElementById(id);
+    var err = document.getElementById('err-' + id);
+    if (!input || !err) return true;
+    var ok = validators[id](input.value);
+    if (ok) {
+      input.classList.remove('error');
+      err.classList.remove('visible');
+    } else {
+      input.classList.add('error');
+      err.classList.add('visible');
+    }
+    return ok;
+  }
+
+  ['vorname', 'nachname', 'telefon', 'email'].forEach(function(id) {
+    var input = document.getElementById(id);
+    if (!input) return;
+    input.addEventListener('blur', function() {
+      if (input.value.trim()) validateField(id);
+    });
+    input.addEventListener('input', function() {
+      if (input.classList.contains('error')) validateField(id);
+    });
+  });
+
+  var consent = $('#consent');
+  var consentErr = $('#err-consent');
+  if (consent) {
+    consent.addEventListener('change', function() {
+      if (consent.checked) consentErr.classList.remove('visible');
+    });
+  }
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    var valid = true;
+    ['vorname', 'nachname', 'telefon', 'email'].forEach(function(id) {
+      if (!validateField(id)) valid = false;
+    });
+
+    if (!consent.checked) {
+      consentErr.classList.add('visible');
+      valid = false;
+    } else {
+      consentErr.classList.remove('visible');
+    }
+
+    if (!valid) {
+      var firstErr = document.querySelector('.field input.error, .consent-error.visible');
+      if (firstErr) smoothScrollTo(firstErr, 120);
+      return;
+    }
+
+    state.answers.kontakt.vorname = $('#vorname').value.trim();
+    state.answers.kontakt.nachname = $('#nachname').value.trim();
+    state.answers.kontakt.telefon = $('#telefon').value.trim();
+    state.answers.kontakt.email = $('#email').value.trim();
+
+    var payload = {
+      ausbildung: state.answers.ausbildung,
+      situation: state.answers.situation,
+      priorities: state.answers.priorities.slice(),
+      kontakt: {
+        vorname: state.answers.kontakt.vorname,
+        nachname: state.answers.kontakt.nachname,
+        telefon: state.answers.kontakt.telefon,
+        email: state.answers.kontakt.email
+      },
+      submittedAt: new Date().toISOString()
+    };
+
+    try { localStorage.setItem('ps_schubiger_application', JSON.stringify(payload)); }
+    catch (err) { /* storage unavailable */ }
+
+    console.log('[PS Schubiger Bewerbung] New application received:', payload);
+
+    $$('.step').forEach(function(el) { el.classList.remove('active'); });
+    if (progressWrap) progressWrap.style.display = 'none';
+    successState.classList.add('active');
+
+    var card = $('.form-card');
+    if (card) smoothScrollTo(card, 40);
+  });
+
+  updateProgress();
+})();
+</script>
+
+</body>
+</html>
