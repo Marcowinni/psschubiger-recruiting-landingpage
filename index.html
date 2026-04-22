@@ -280,6 +280,14 @@ a { color: var(--color-primary); }
   -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
           mask-image: linear-gradient(90deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
   padding: 4px 0;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: pan-y;
+}
+
+.hero-perks-ticker-wrap:active {
+  cursor: grabbing;
 }
 
 .hero-perks-ticker-track {
@@ -1273,9 +1281,9 @@ a { color: var(--color-primary); }
 
 <section class="claim-section">
   <p class="hero-claim">
-    Werde Teil von etwas, das bleibt —<br>
-    hier planst du nicht nur, du gestaltest.<br>
-    Dein Name steht hinter Projekten, die zählen.
+    Wir planen für die Zukunft — gemeinsam im Team<br>
+    und mit Projekten, die du von der ersten Idee<br>
+    bis zur Ausführung mitprägst.
   </p>
 </section>
 
@@ -1942,6 +1950,64 @@ a { color: var(--color-primary); }
   }
 
   showTask();
+})();
+
+/* Ticker — drag / swipe to scroll manually */
+(function() {
+  var wrap  = document.querySelector('.hero-perks-ticker-wrap');
+  var track = document.querySelector('.hero-perks-ticker-track');
+  if (!wrap || !track) return;
+
+  var DURATION   = 32;
+  var isDragging = false;
+  var startX     = 0;
+  var baseOffset = 0;
+
+  function getTranslateX() {
+    var t = window.getComputedStyle(track).transform;
+    if (!t || t === 'none') return 0;
+    var m = t.match(/matrix.*\((.+)\)/);
+    return m ? parseFloat(m[1].split(', ')[4]) : 0;
+  }
+
+  function dragStart(x) {
+    isDragging = true;
+    startX     = x;
+    baseOffset = getTranslateX();
+    track.style.animationPlayState = 'paused';
+    wrap.style.cursor = 'grabbing';
+  }
+
+  function dragMove(x) {
+    if (!isDragging) return;
+    track.style.transform = 'translateX(' + (baseOffset + (x - startX)) + 'px)';
+  }
+
+  function dragEnd(x) {
+    if (!isDragging) return;
+    isDragging = false;
+    wrap.style.cursor = '';
+
+    var finalPx   = baseOffset + (x - startX);
+    var halfWidth = track.scrollWidth / 2;
+    /* normalise into [−halfWidth, 0) so the loop is seamless */
+    var posInCycle = ((finalPx % halfWidth) + halfWidth) % halfWidth;
+    var delay      = -(posInCycle / halfWidth) * DURATION;
+
+    track.style.transform          = '';
+    track.style.animationDelay     = delay + 's';
+    track.style.animationPlayState = 'running';
+  }
+
+  /* touch */
+  wrap.addEventListener('touchstart', function(e) { dragStart(e.touches[0].clientX); },          { passive: true });
+  wrap.addEventListener('touchmove',  function(e) { dragMove(e.touches[0].clientX); },           { passive: true });
+  wrap.addEventListener('touchend',   function(e) { dragEnd(e.changedTouches[0].clientX); },     { passive: true });
+
+  /* mouse */
+  wrap.addEventListener('mousedown', function(e) { e.preventDefault(); dragStart(e.clientX); });
+  document.addEventListener('mousemove', function(e) { dragMove(e.clientX); });
+  document.addEventListener('mouseup',   function(e) { dragEnd(e.clientX); });
 })();
 </script>
 
