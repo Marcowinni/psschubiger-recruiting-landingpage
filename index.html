@@ -294,16 +294,7 @@ a { color: var(--color-primary); }
   display: flex;
   gap: 10px;
   width: max-content;
-  animation: tickerScroll 32s linear infinite;
-}
-
-.hero-perks-ticker-wrap:hover .hero-perks-ticker-track {
-  animation-play-state: paused;
-}
-
-@keyframes tickerScroll {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  will-change: transform;
 }
 
 .hpt-item {
@@ -1952,62 +1943,73 @@ a { color: var(--color-primary); }
   showTask();
 })();
 
-/* Ticker — drag / swipe to scroll manually */
+/* Ticker — JS-driven scroll + drag */
 (function() {
   var wrap  = document.querySelector('.hero-perks-ticker-wrap');
   var track = document.querySelector('.hero-perks-ticker-track');
   if (!wrap || !track) return;
 
-  var DURATION   = 32;
-  var isDragging = false;
-  var startX     = 0;
-  var baseOffset = 0;
+  var CYCLE_MS  = 32000; /* ms for one full loop */
+  var pos       = 0;     /* current translateX in px */
+  var halfWidth = 0;
+  var lastTs    = null;
+  var dragging  = false;
+  var dragX     = 0;
+  var dragPos   = 0;
 
-  function getTranslateX() {
-    var t = window.getComputedStyle(track).transform;
-    if (!t || t === 'none') return 0;
-    var m = t.match(/matrix.*\((.+)\)/);
-    return m ? parseFloat(m[1].split(', ')[4]) : 0;
+  function normalize(p) {
+    if (!halfWidth) return p;
+    p = p % halfWidth;
+    if (p > 0) p -= halfWidth;
+    return p;
   }
 
-  function dragStart(x) {
-    isDragging = true;
-    startX     = x;
-    baseOffset = getTranslateX();
-    track.style.animationPlayState = 'paused';
+  function tick(ts) {
+    if (!halfWidth) halfWidth = track.scrollWidth / 2;
+
+    if (!dragging) {
+      if (lastTs !== null) {
+        pos -= halfWidth / CYCLE_MS * (ts - lastTs);
+        if (pos < -halfWidth) pos += halfWidth;
+      }
+      lastTs = ts;
+    }
+
+    track.style.transform = 'translateX(' + pos + 'px)';
+    requestAnimationFrame(tick);
+  }
+
+  function start(x) {
+    dragging = true;
+    dragX    = x;
+    dragPos  = pos;
+    lastTs   = null;
     wrap.style.cursor = 'grabbing';
   }
 
-  function dragMove(x) {
-    if (!isDragging) return;
-    track.style.transform = 'translateX(' + (baseOffset + (x - startX)) + 'px)';
+  function move(x) {
+    if (!dragging) return;
+    pos = dragPos + (x - dragX);
   }
 
-  function dragEnd(x) {
-    if (!isDragging) return;
-    isDragging = false;
+  function end() {
+    if (!dragging) return;
+    dragging = false;
+    pos = normalize(pos);
     wrap.style.cursor = '';
-
-    var finalPx   = baseOffset + (x - startX);
-    var halfWidth = track.scrollWidth / 2;
-    /* normalise into [−halfWidth, 0) so the loop is seamless */
-    var posInCycle = ((finalPx % halfWidth) + halfWidth) % halfWidth;
-    var delay      = -(posInCycle / halfWidth) * DURATION;
-
-    track.style.transform          = '';
-    track.style.animationDelay     = delay + 's';
-    track.style.animationPlayState = 'running';
   }
 
   /* touch */
-  wrap.addEventListener('touchstart', function(e) { dragStart(e.touches[0].clientX); },          { passive: true });
-  wrap.addEventListener('touchmove',  function(e) { dragMove(e.touches[0].clientX); },           { passive: true });
-  wrap.addEventListener('touchend',   function(e) { dragEnd(e.changedTouches[0].clientX); },     { passive: true });
+  wrap.addEventListener('touchstart', function(e) { start(e.touches[0].clientX); },         { passive: true });
+  wrap.addEventListener('touchmove',  function(e) { move(e.touches[0].clientX); },          { passive: true });
+  wrap.addEventListener('touchend',   function(e) { end(); },                                { passive: true });
 
   /* mouse */
-  wrap.addEventListener('mousedown', function(e) { e.preventDefault(); dragStart(e.clientX); });
-  document.addEventListener('mousemove', function(e) { dragMove(e.clientX); });
-  document.addEventListener('mouseup',   function(e) { dragEnd(e.clientX); });
+  wrap.addEventListener('mousedown', function(e) { e.preventDefault(); start(e.clientX); });
+  document.addEventListener('mousemove', function(e) { move(e.clientX); });
+  document.addEventListener('mouseup',   function() { end(); });
+
+  requestAnimationFrame(tick);
 })();
 </script>
 
